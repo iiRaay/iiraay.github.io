@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>ART 321 - ASSIGNMENT 3</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+
+	<body>
+		<div>
+				I have decided that I will be designing a piece of net art which converts an image uploaded by the user to an ascii drawing. <br>
+				<img width="300px" height="400px" src="https://i.imgur.com/Q9Qz5oU.png"> will be converted into <img width="300px" height="400px" src="https://i.imgur.com/zu3TEjC.png"><br>
+
+				In order to do this, we will need to have a user visit our website and upload a picture. This picture will then get sent to our server and be processed. <br>
+
+				As far as processing goes, a high level overview of it is as follows:<br>
+				<ol>
+				  <li>Get a list of each ASCII character and assign it a grey-scale value which. We need to do this to allow us to choose which symbol to use in each area of the picture. So for example, if an area is empty, we can use ascii symbol "." to dictate an empty or less cluttered pixel rather than an "@".</li>
+				  <li>Group the pixels of the image in blocks of the same proportion of the ascii text. So for example, we would take blocks of 10x10px blocks if our ascii text had dimensions of 10x10px. So a 100x100px image would be 10x10 blocks where each block would be converted to an ascii character.<br><img width="150px" height="150px" src="https://i.imgur.com/4n7nxI1.png"> Each block will be 10x10 and we will take the avg. greyscale value of each block</li>
+				  <li>We would then get an average grey value scale of each block and replace the block with the corresponding ascii value (done in step 1) that is closest to the grey-scale value of the block. As an example, lets say the top left corner of the picture in step 2 has a grey scale value of 1 (this is not accurate value this is just an exmaple). We will go down our list of ascii grey-scale values in step 1 and pick the closest one, lets say "-" has a grey-scale value of 0.98 and is the cloest to the value. We will choose this and start the processing with "-". As we continute, we will have a string which will be 10x10 characters which will be the ascii image.</li>
+				</ol>  
+				After the algorithm has run, we should get a ascii picture resembling the orginal input.
+
+				If the user enters in a gif, I will be able to take the gif frame by frame and do the conversion as a regular picture and store each converted picture as a string. With these strings, I can then keep printing and clearing with some javascript directly on the website which will resemble animated ascci text.
+		</div>
+	</body>
+
+
+</html>
